@@ -10,6 +10,14 @@ export const clearResults = () => {
    elements.searchResPage.innerHTML = "";
 }
 
+export const highlitedSelected = (id) => {
+    const resultArr = [...document.querySelectorAll('.results__link')]
+
+    resultArr.forEach(el => el.classList.remove('results__link--active'))
+
+    document.querySelector(`a[href="#${id}"]`).classList.add("results__link--active");
+}
+
 const limitRecipeTitle = (title, limit = 17) => {
     const newTitle = []
    if(title.length > limit){
